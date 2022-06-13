@@ -1,0 +1,15 @@
+li {
+    list-style: none;
+    margin-bottom: 5px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+a.enlace-eliminar {
+    margin-left: 10px;
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+.tachado {
+    text-decoration: line-through;
+}
