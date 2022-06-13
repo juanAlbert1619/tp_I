@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar elemento</title>
+</head>
+<body>
+
+    <div class="contaimer">
+        <p id="parrafOriginal">Realizar un programa que modifique el texto de un <br>elemento "p" con el contenido de un entrada "input" <br>al presionar un botón "button". <br>               
+        </p>
+        <button id="button-0" class="btn btn-danger" onclick="document.getElementById('parrafOriginal').innerHTML = text2;">Cambiar el texto</button>
+        <button id="button-1" name="btn-text">Cambia por otro</button>
+    </div>
+    <script>
+        let text2 = "Se cambio el texto Original por el que ve en pantalla"
+        //document.getElementById("parrafOriginal").innerHTML = text2;
+
+        function cambiarText(nombre="Juan", apellido="Reynoso"){
+            return nombre, apellido;
+            
+        }
+        cambiarText();
+        console.log(cambiarText());
+        //document.getElementById("parrafOriginal").innerHTML = cambioText("Juan"+ " " + Reynoso );
+    </script>
+</body>
+</html>
