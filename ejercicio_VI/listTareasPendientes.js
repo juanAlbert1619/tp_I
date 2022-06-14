@@ -1,10 +1,10 @@
-const CLAVE_LOCALSTORAGE = "lista_tareas";
+const localStorage_1 = "lista_tareas";
 document.addEventListener("DOMContentLoaded", () => {
     let tareas = [];
 
     const $contenedorTareas = document.querySelector("#contenedorTareas"),
         $btnGuardarTarea = document.querySelector("#btnAgregarTarea"),
-        $inputNuevaTarea = document.querySelector("inputNuevaTarea");
+        $inputNuevaTarea = document.querySelector("#inputNuevaTarea");
 
         // Escuchar Clic del Button para agregar tarea
 
@@ -25,13 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
             guardarTareasEnAlmacenamiento();
             refrescarListaDeTareas();
         };
-        
-
-        
-        
 
         const obtenerTareasDeAlmacenamiento = () => {
-            const posibleLista = JSON.parse(localStorage.getItem(CLAVE_LOCALSTORAGE));
+            const posibleLista = JSON.parse(localStorage.getItem(localStorage_1));
             if (posibleLista) {
                 return posibleLista;
             } else {
@@ -39,8 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         };
 
-        const guardaTareaAlmacenamiento = () => {
-            localStorage.setItem(clave, JSON.stringify(tareas));
+        const guardarTareasEnAlmacenamiento = () => {
+            localStorage.setItem(localStorage, JSON.stringify(tareas));
         };
 
         const refrescarListaDeTareas = () => {
@@ -52,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 $enlaceParaEliminar.innerHTML = "&times;";
                 $enlaceParaEliminar.href = "";
                 $enlaceParaEliminar.onclick = (evento) => {
-                    evento.presentDefaul();
+                    evento.preventDefault();
                     if (!confirm("¿Quieres ELIMINAR la Tarea?")) {
                         return;
                     }
@@ -65,14 +61,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 const $checkbox = document.createElement("input");
                 $checkbox.type = "checkbox";
                 $checkbox.onchange = function (){
-                    if(this.$checkd) {
+                    if(this.checked) {
                         tareas[indice].terminada = true;
 
                     }else {
                         tareas[indice].terminada = false;
                     }
 
-                    guardaTareaAlmacenamiento(tareas);
+                    guardarTareasEnAlmacenamiento(tareas);
                     refrescarListaDeTareas();
                 }
 
